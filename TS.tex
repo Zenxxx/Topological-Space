@@ -1,0 +1,196 @@
+\documentclass[dvipdfmx,a4paper, 12pt]{article}
+\usepackage{wrapfig, blindtext}
+\usepackage{amsmath,amssymb,graphicx} %load extra symbols and environments
+\usepackage[margin=1in]{geometry} %set margins
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{autobreak}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{url}
+\usepackage{tcolorbox}
+\usepackage{bm}
+\usepackage{breqn}
+\usepackage{here}
+\usepackage{ascmac}
+\usepackage{empheq}
+\usepackage{setspace}
+\usepackage{here}
+\usepackage{mathrsfs}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+
+\hyphenpenalty=10000\relax
+\exhyphenpenalty=10000\relax
+\sloppy
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\T}{\mathbb{T}}
+
+\allowdisplaybreaks[4]
+\tcbuselibrary{breakable, skins, theorems}
+
+\newtcbtheorem{definition1}{Definition}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = green!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{korehatheorem1}
+
+\newtcbtheorem{theorem2}{Theorem}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = green!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = orange!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{korehatheorem2}
+
+\newtcbtheorem{proof3}{Proof}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = black!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{korehatheorem3}
+
+\newtcbtheorem{example4}{Example}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = black!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = black!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{korehatheorem4}
+
+\begin{document}
+
+\setlength{\abovedisplayskip}{1pt}
+\setlength{\belowdisplayskip}{1pt}
+
+\onehalfspacing
+
+\title{Topological Space}
+\author{}
+\date{}
+\maketitle
+
+\newpage
+
+\section{Distance}
+Let $x,y,z$ be elements of a set $X$ and $d(x,y)$ be a real number that
+satisfies conditions below. 
+\begin{enumerate}
+  \item $d(x,y) \geq 0$ and $d(x,y)=0 \Leftrightarrow x=y$
+  \item $d(x,y)=d(y,x)$
+  \item $d(x,z) \leq d(x,y)+d(y,z)$
+\end{enumerate}
+Then, $d$ is called adistance function of $X$ and a set $X$ with a distance
+function is called a distance space. $d(x,y)$ is called a distance between $x$
+and $y$.
+
+Let $X$ be a distance space, $x \in X$ and $\varepsilon > 0$. Then,
+\begin{equation}
+U(x,\varepsilon)=U_{\varepsilon}(x)=\{y \in X \ | \ d(x,y)<\varepsilon\}
+\end{equation}
+is called a $\varepsilon$-neighbourhood and
+\begin{equation}
+S(x,\varepsilon)=\{y \in X \ | \ d(x,y)=\varepsilon\}
+\end{equation}
+is called a sphere.a
+
+\begin{example4}{Distance in $R$}{tag}
+The distance between $x$ and $y$ which are placed on a line $R$ is denoted by
+\begin{equation}
+d(x,y)=|x-y|
+\end{equation}
+\end{example4}
+
+\begin{example4}{Distance in $R^n$}{tag}
+The distance between $x=(x_1,x_2,\ldots x_n)$ and $y=(y_1,y_2,\ldots ,y_n)$
+which are placed on a line $R^n$ is denoted by
+\begin{equation}
+d(x,y)=\sqrt{(x_1-y_1)^2+\ldots+(x_n-y_n)^2}
+\end{equation}
+\end{example4}
+This $d(x,y)$ is called Euclid distance and $R^n$ with the distance is called
+$n$-dimension Euclid space.  
+
+\begin{example4}{Hilbert Space}{tag}
+Hilbert space, which is an extension of an Euclidian space $R^n$ to infinity
+dimention is defined as below.
+\begin{equation}
+R^{\infty}=\{x=(x_1,x_2,\ldots , x_n, \ldots ) \ | \ \sum_{i=1}^{\infty}x_i^2 <
+\infty\}
+\end{equation}
+The distance between two points $x=(x_1,\ldots , x_n, \ldots )$ and
+$y=(y_1,\ldots , y_n, \ldots )$ is denoted by 
+\begin{equation}
+d(x,y)=\sqrt{\sum_{i=1}^{\infty}(x_i-y_i)^2}
+\end{equation}
+This is finite since for arbitary $n$,
+\begin{equation}
+\sum_{i=1}^n x_i^2 +\sum_{i=1}^n y_i^2 \geq \sum_{i=1}^n (x_i-y_i)^2
+\end{equation}
+Both, $\sum_{i=1}^n x_i^2$ and $\sum_{i=1}^n y_i^2$ converge from the
+definition, do right-hand side also converges.
+\end{example4}
+
+\begin{example4}{Discrete Distance Space}{tag}
+For 2 elements $x,y$ of a set $X$ define
+\begin{align*}
+d(x,x)=0 \\
+d(x,y)=1
+\end{align*}
+This $d(x,y)$ is a distance function, $X$ forms a distance space and this is
+called a discrete distance space.
+Its $\varepsilon$-neighbourhood is
+\begin{align} \displaystyle   
+U(x,\varepsilon) =\left\{ 
+    \begin{aligned}
+    & \{x\} \ (\varepsilon \leq 1)\\
+    & X \ (\varepsilon > 1)
+    \end{aligned}
+\right.
+\nonumber
+\end{align}
+Its open ball is 
+\begin{align} \displaystyle   
+S(x,\varepsilon) =\left\{ 
+    \begin{aligned}
+    & \emptyset \ (\varepsilon \neq 1)\\
+    & X-\{x\} \ (\varepsilon = 1)
+    \end{aligned}
+\right.
+\nonumber
+\end{align}
+\end{example4}
+For a subset $A$ of a distance space $X$,
+\begin{equation}
+\delta (A)=\sup \{d(x,y) \ | \ x \in A , y \in A\}
+\end{equation}
+is called a diameter of $A$.
+If diameter of $A$ is finite, then a set $A$ is bounded.
+
+Let $A,B$ be subset of a distance space $X$. Then, the distance between $A$ and
+$B$ is denoted by
+\begin{equation}
+d(A,B)=\inf \{d(x,y) \ | \ x \in A, y \in B\}
+\end{equation}
+
+\end{document}
